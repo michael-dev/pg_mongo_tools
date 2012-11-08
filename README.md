@@ -46,6 +46,7 @@ Find all records from your collection, or it will send the JSON predicate for yo
 
    Example:
    dkerr=# select from_mongo('pcat','products', '{"type": "phone"}');
+
                                                             from_mongo                                                            
    ----------------------------------------------------------------------------------------------------------------------------------
    {"available": true, "warranty_years": 1, "name": "AC3 Phone", "price": 200, "_id": "ac3", "type": "phone", "brand": "ACME"}
