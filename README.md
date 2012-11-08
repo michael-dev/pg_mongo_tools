@@ -44,15 +44,14 @@ Find all records from your collection, or it will send the JSON predicate for yo
 
    from_mongo( DATABASE, COLLECTION, [ PREDICATE ] )
 
-Example:
-dkerr=# select from_mongo('pcat','products', '{"type": "phone"}');
+   Example:
+   dkerr=# select from_mongo('pcat','products', '{"type": "phone"}');
                                                             from_mongo                                                            
-----------------------------------------------------------------------------------------------------------------------------------
- {"available": true, "warranty_years": 1, "name": "AC3 Phone", "price": 200, "_id": "ac3", "type": "phone", "brand": "ACME"}
- {"available": false, "warranty_years": 1, "name": "AC7 Phone", "price": 320, "_id": "ac7", "type": "phone", "brand": "ACME"}
- {"available": true, "warranty_years": 0.25, "name": "AC9 Phone", "price": 333.0, "_id": "ac9", "type": "phone", "brand":
-"ACME"}
-(3 rows)
+   ----------------------------------------------------------------------------------------------------------------------------------
+   {"available": true, "warranty_years": 1, "name": "AC3 Phone", "price": 200, "_id": "ac3", "type": "phone", "brand": "ACME"}
+   {"available": false, "warranty_years": 1, "name": "AC7 Phone", "price": 320, "_id": "ac7", "type": "phone", "brand": "ACME"}
+   {"available": true, "warranty_years": 0.25, "name": "AC9 Phone", "price": 333.0, "_id": "ac9", "type": "phone", "brand": "ACME"}
+   (3 rows)
 
 NOTE: I suspect this function may eat a lot of memory for a large number of records returned.
 
