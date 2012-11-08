@@ -1,8 +1,12 @@
-pg_mongo_tools
-=============
-Homepage: http://github.com/kerr23/pg_mongo_tools
+## pg_mongo_tools
 
 A set of functions written in PL/Python to interact with a MongoDB from PostgreSQL
+
+## Homepage 
+
+[ git://github.com/kerr23/pg_mongo_tools.git ]
+
+## History
 
 These functions are different from the Mongo Foreign Data Wrapper (http://pgxn.org/dist/mongo_fdw)
 in that they utilize the JSON datatype which is new in PostgreSQL 9.2. 
@@ -11,20 +15,17 @@ FDWs require that you create a table that has the same structure of your MongoDB
 this is undesireable since one of the things that makes MongoDB so powerful is it's fluid schema.
 (Not exactly schema-less, but close)
 
-Prerequisites
-=============
+## Prerequisites
 
 * The MongoDB Driver for Python must be installed on your server (https://github.com/mongodb/mongo-python-driver)
 * PL/Python must be installed and created in your database
 
-Installation
-=============
+## Installation
 
    psql -f pg_mongo_tools.sql <database>
 
 
-Setup
-=============
+## Setup
 
 To get started you need to run pg_mongo_configure, this creates a table called mongo_config that
 holds connection info for MongoDB.
@@ -37,12 +38,12 @@ holds connection info for MongoDB.
 - PORT is the MongoDB port (defaults to 27017)
 
 
-Usage
-=============
+## Usage
+
+== from_mongo
 
 Find all records from your collection, or it will send the JSON predicate for your query.
-
-   from_mongo( DATABASE, COLLECTION, [ PREDICATE ] )
+  from_mongo( DATABASE, COLLECTION, [ PREDICATE ] )
 
    Example:
    dkerr=# select from_mongo('pcat','products', '{"type": "phone"}');
@@ -56,9 +57,8 @@ Find all records from your collection, or it will send the JSON predicate for yo
 
 NOTE: I suspect this function may eat a lot of memory for a large number of records returned.
 
-
+== to_mongo
 Insert a record into your collection.
-
    to_mongo( DATABASE, COLLECTION, DATASET )
 
    
